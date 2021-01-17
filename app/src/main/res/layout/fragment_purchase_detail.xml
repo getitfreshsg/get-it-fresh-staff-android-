@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.wetmarket.staff.Comman.SlidingLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_user_placeholder_new" />
+
+                    <LinearLayout
+                        android:layout_toEndOf="@+id/ivProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/tvStaffName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Andrew scoth"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/dark_black_color"/>
+
+
+                        <TextView
+                            android:id="@+id/tvStaffNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+65 9876 3574"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/gray_font_color"/>
+
+                    </LinearLayout>
+
+
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvOrderID"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center_vertical"
+                    android:text="Order #00165"
+                    android:textColor="@color/dark_black_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    style="@style/Textview_gray_style"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="$93.60"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+
+                    style="@style/Textview_gray_style"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/payable_amount"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/ivImage"
+                        android:layout_centerVertical="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_shop"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"/>
+
+                    <LinearLayout
+                        android:layout_toEndOf="@+id/ivImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/name_of_the_wet_market"
+                            android:textSize="@dimen/_11sdp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/dark_black_color"/>
+
+
+                        <TextView
+                            android:id="@+id/tvWetMarketName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wet Market Name"
+                            android:textSize="@dimen/_11sdp"
+                            android:fontFamily="@font/poppins_light"
+                            android:textColor="@color/gray_font_color"/>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <View
+
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/gray_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_20sdp"
+                    style="@style/Textview_gray_style"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/item_details"
+                    android:textColor="@color/dark_black_color"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPurchaseList"
+                    tools:listitem="@layout/row_item"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    tools:itemCount="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <View
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/gray_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Textview_gray_style"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/total_ayable_amount"
+                        android:textColor="@color/dark_black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                    <TextView
+                        android:id="@+id/tvTotalAmount"
+                        style="@style/Textview_gray_style"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="end"
+
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="end"
+                        android:text="$93.60"
+                        android:textColor="@color/dark_black_color"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnAccept"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:text="@string/accept"
+                    android:background="@drawable/drawable_button"
+                    style="@style/Button_style" />
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </com.wetmarket.staff.Comman.SlidingLinearLayout>
+
+</layout>

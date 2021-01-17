@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+        <com.wetmarket.staff.Comman.SlidingLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:id="@+id/ivProfile"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_user_placeholder_new" />
+
+                        <LinearLayout
+                            android:layout_toEndOf="@+id/ivProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:id="@+id/tvStaffName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Andrew scoth"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textColor="@color/dark_black_color"/>
+
+
+                            <TextView
+                                android:id="@+id/tvStaffNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+65 9876 3574"
+                                android:textSize="@dimen/_12sdp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:textColor="@color/gray_font_color"/>
+
+                        </LinearLayout>
+
+
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvOrderID"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center_vertical"
+                        android:text="Order #00165"
+                        android:textColor="@color/dark_black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvDetail"
+                            style="@style/Textview_gray_style"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="@string/handover_item"
+                            android:textColor="@color/gray_font_color"
+                            android:textSize="@dimen/_11sdp" />
+
+
+
+                        <TextView
+                            android:id="@+id/tvHandOverName"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            style="@style/Textview_gray_style"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="Sam Moore -987456"
+                            android:textColor="@color/gray_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        style="@style/Textview_gray_style"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="$93.60"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_18sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        style="@style/Textview_gray_style"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/payable_amount"
+                        android:textColor="@color/gray_color"
+                        android:textSize="@dimen/_12sdp" />
+
+
+
+                    <View
+
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/gray_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_20sdp"
+                        style="@style/Textview_gray_style"
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/item_details"
+                        android:textColor="@color/dark_black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvPurchaseList"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/row_item_check"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <View
+
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@color/gray_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Textview_gray_style"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="@string/total_ayable_amount"
+                            android:textColor="@color/dark_black_color"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <TextView
+                            android:id="@+id/tvTotalAmount"
+                            style="@style/Textview_gray_style"
+                            android:layout_width="match_parent"
+                            android:layout_gravity="end"
+
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="end"
+                            android:text="$93.60"
+                            android:textColor="@color/dark_black_color"
+                            android:textSize="@dimen/_12sdp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnCollecItems"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:text="@string/collect_items"
+                        android:background="@drawable/drawable_button"
+                        style="@style/Button_style" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvPriceSub"
+                            style="@style/Textview_gray_style"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="$93.60"
+                            android:textColor="@color/dark_black_color"
+                            android:textSize="@dimen/_12sdp" />
+
+
+
+                        <TextView
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            style="@style/Textview_gray_style"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="@string/amount_paid_to_purchase"
+                            android:textColor="@color/dark_black_color"
+                            android:textSize="@dimen/_11sdp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/Textview_gray_style"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:text="@string/purchaser_acknnow"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_11sdp" />
+
+
+
+        </com.wetmarket.staff.Comman.SlidingLinearLayout>
+
+    </layout>

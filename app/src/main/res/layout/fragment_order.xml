@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<com.wetmarket.staff.Comman.SlidingLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.wetmarket.staff.Fragment.OrderFragment">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            tools:listitem="@layout/row_order_list"
+            android:id="@+id/rvList"/>
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvViewCompletedOrders"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_margin="@dimen/_15sdp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_11sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/view_compeleted_orders"
+        android:background="@drawable/border_bg"
+        />
+
+
+
+</com.wetmarket.staff.Comman.SlidingLinearLayout>
+</layout>

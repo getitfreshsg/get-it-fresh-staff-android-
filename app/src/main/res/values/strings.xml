@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">GetItFresh Staff</string>
+    <string name="staff_login">Staff Log in</string>
+    <string name="enter_your_credential">Enter your Credentials for Log in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="skip">Skip</string>
+    <string name="don_t_have_an_account">Don\'t have an account ?</string>
+    <string name="register">Register</string>
+    <string name="verify_your_n_phone_number">Verify your \n Phone number</string>
+    <string name="we_sent_a_verification_code_to">We sent a verification code to</string>
+    <string name="enter_the_code_below_boxes">Enter the code below boxes</string>
+    <string name="verify_and_proceed">Verify and proceed</string>
+    <string name="resend_code">Resend code</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="personal_detail">Personal Details</string>
+    <string name="edit">Edit</string>
+    <string name="accept">Accept</string>
+    <string name="ok">Ok</string>
+    <string name="items_handover">Items Handover</string>
+    <string name="successfully">Successfully</string>
+    <string name="completed">Completed</string>
+    <string name="name_of_the_wet_market">Name of The Wet Market</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="profile">Profile</string>
+    <string name="purchased_item">Purchased Item</string>
+    <string name="notification">Notification</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="purchase_detail">Purchase Details</string>
+    <string name="completed_orders">Completed Orders</string>
+    <string name="collect_items">Collect Items</string>
+    <string name="payable_amount">Payable Amount</string>
+    <string name="item_details">Items Details</string>
+    <string name="total_ayable_amount">Total Payable Amount</string>
+    <string name="refund_amount">Refund Amount</string>
+    <string name="handover_item">Handover Items</string>
+    <string name="delivery_date">Delivery Date : </string>
+    <string name="handed_over_by">Handed over by</string>
+    <string name="amount_paid_to_purchase">Amount paid to Purchaser</string>
+    <string name="purchaser_acknnow">Purchaser acknowledged cash receipt </string>
+    <string name="view_compeleted_orders">View Compeleted Orders</string>
+    <string name="total_payanle_amount">Total Payable Amount</string>
+    <string name="missing_items">Missing Items</string>
+    <string name="deliver">Deliver</string>
+    <string name="order_details">Order Details</string>
+    <string name="delivery_details">Delivery Details</string>
+    <string name="waiting_for_delivery_acceptance">Waiting for Delivery Acceptance</string>
+    <string name="waiting_for_purchase_acceptance">Waiting for Purchase Acceptance</string>
+</resources>

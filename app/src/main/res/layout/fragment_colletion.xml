@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools">
+<com.wetmarket.staff.Comman.SlidingLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.wetmarket.staff.Fragment.CollectionFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCollectionList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        tools:listitem="@layout/row_collection" />
+
+
+</com.wetmarket.staff.Comman.SlidingLinearLayout>
+</layout>
+
