@@ -1,4 +1,4 @@
-package com.wetmarket.staff.Comman;
+package com.wetmarket.staff.comman;
 
 import android.content.Context;
 import android.util.AttributeSet;

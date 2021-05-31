@@ -34,7 +34,7 @@
 
 
                 <TextView
-                    android:id="@+id/tvOrderID"
+                    android:id="@+id/tvOrderNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -68,7 +68,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvDetail"
+                    android:id="@+id/tvDeliveryBy"
                     style="@style/Textview_gray_style"
                     android:layout_width="wrap_content"
                     android:fontFamily="@font/poppins_light"

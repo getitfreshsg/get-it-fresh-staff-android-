@@ -3,7 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.wetmarket.staff.Comman.SlidingLinearLayout
+    <data>
+
+        <variable
+            name="lable"
+            type="com.wetmarket.staff.retrofit.model.LableModel" />
+
+    </data>
+
+    <com.wetmarket.staff.comman.SlidingLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -21,8 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_15sdp"
-                android:gravity="center"
                 android:layout_marginEnd="@dimen/_15sdp"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -31,7 +39,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/playfairdisplay_bold"
                     android:gravity="center"
-                    android:text="@string/staff_login"
+                    android:text="@{lable.txtStaffLoginTitle}"
                     android:textColor="@color/dark_black_color"
                     android:textSize="@dimen/_20sdp" />
 
@@ -40,10 +48,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
-                    android:text="@string/enter_your_credential"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{lable.txtStaffLoginDesc}"
                     android:textColor="@color/gray_font_color"
                     android:textSize="@dimen/_12sdp" />
 
@@ -58,28 +66,28 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="@dimen/_25sdp">
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:hint="@string/email"
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edt_email"
+                        style="@style/EditText_style"
+                        android:background="@drawable/drawable_edittext"
+                        android:hint="@{lable.txtEmailTitle}"
                         android:inputType="textEmailAddress"
                         android:paddingStart="@dimen/_15sdp"
-                        android:paddingEnd="@dimen/_15sdp"
-                        android:background="@drawable/drawable_edittext"
-                        style="@style/EditText_style"
-                        />
+                        android:paddingEnd="@dimen/_15sdp" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edt_password"
+                        style="@style/EditText_style"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:hint="@string/password"
+                        android:background="@drawable/drawable_edittext"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@{lable.txtPassword}"
                         android:inputType="textPassword"
                         android:paddingStart="@dimen/_15sdp"
-                        android:paddingEnd="@dimen/_15sdp"
-                        android:fontFamily="@font/poppins_regular"
-                        android:background="@drawable/drawable_edittext"
-                        style="@style/EditText_style" />
-
+                        android:paddingEnd="@dimen/_15sdp" />
 
 
                 </LinearLayout>
@@ -87,10 +95,10 @@
 
                 <Button
                     android:id="@+id/btnLogin"
+                    style="@style/Button_style"
                     android:layout_marginTop="@dimen/_25sdp"
-                    android:text="@string/login"
                     android:background="@drawable/drawable_button"
-                    style="@style/Button_style" />
+                    android:hint="@{lable.txtLogin}" />
 
 
             </LinearLayout>
@@ -98,5 +106,5 @@
 
         </ScrollView>
 
-    </com.wetmarket.staff.Comman.SlidingLinearLayout>
+    </com.wetmarket.staff.comman.SlidingLinearLayout>
 </layout>

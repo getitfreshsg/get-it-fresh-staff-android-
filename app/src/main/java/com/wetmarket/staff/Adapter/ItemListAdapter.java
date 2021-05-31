@@ -12,19 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wetmarket.staff.Model.ItemModel;
 import com.wetmarket.staff.R;
 import com.wetmarket.staff.databinding.RowItemBinding;
+import com.wetmarket.staff.retrofit.model.ProductModel;
 
 import java.util.List;
 
 
 public class ItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
 
-    private List<ItemModel> notificationList;
+    private List<ProductModel> notificationList;
     private OnItemClickListener onItemClickListener;
     private Context mContext;
     private RowItemBinding binding;
 
+    private boolean isCheck = false;
 
-    public ItemListAdapter(Context context, List<ItemModel> items) {
+
+    public ItemListAdapter(Context context, List<ProductModel> items) {
         this.notificationList = items;
         this.mContext = context;
     }
@@ -33,6 +36,10 @@ public class ItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.onItemClickListener = onItemClickListener;
     }
 
+    public void setCheck(boolean check) {
+        isCheck = check;
+        notifyDataSetChanged();
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -71,7 +78,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    onItemClickListener.onItemClick(v, (ItemModel) v.getTag());
+                    onItemClickListener.onItemClick(v, (ProductModel) v.getTag());
                 }
             }, 200);
         }
@@ -80,7 +87,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public interface OnItemClickListener {
 
-        void onItemClick(View view, ItemModel viewModel);
+        void onItemClick(View view, ProductModel viewModel);
 
     }
 
@@ -97,8 +104,10 @@ public class ItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         }
 
-        public void bindData(final ItemModel item, final int position) {
-
+        public void bindData(final ProductModel item, final int position) {
+            binding.tvItemName.setText(item.getProduct_name() + "(" + item.getWeight() + "g)");
+            Float subTotal = Float.parseFloat(item.getPrice()) * Integer.parseInt(item.getQuantity());
+            binding.tvDetail1.setText("$" + subTotal);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -110,9 +119,21 @@ public class ItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
             });
 
+            if (isCheck) {
+                binding.cbItem.setVisibility(View.VISIBLE);
+                binding.cbItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        notificationList.get(position).setSelect(!notificationList.get(position).isSelect());
+                    }
+                });
+
+            } else {
+                binding.cbItem.setVisibility(View.GONE);
+            }
+
         }
     }
-
 
 
 }

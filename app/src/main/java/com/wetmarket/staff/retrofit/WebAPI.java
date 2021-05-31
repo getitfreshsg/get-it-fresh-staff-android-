@@ -2,21 +2,18 @@ package com.wetmarket.staff.retrofit;
 
 public class WebAPI {
 
-    public static final String DOMAIN = "https://api.doralhealthconnect.com";
-    public static final String BASE_URL = DOMAIN+"/api/";
+    public static final String DOMAIN = "http://151.106.113.63:9090";
+    public static final String BASE_URL = DOMAIN + "/api/";
+    static final String LOGIN = "staff/login";
+    static final String LOGOUT = "staff/logout";
+    static final String GET_PROFILE = "staff/profile";
+    static final String UPDATE_PROFILE = "staff/update";
+    static final String ORDER_LIST = "staff/order-list";
+    static final String OUT_DELIVERY_ORDER = "staff/order-out-for-delivery";
+    static final String ORDER_ACCEPT = "staff/order-accept";
+    static final String HAND_OVER_ITEM = "staff/purchase-available-item";
+    static final String ORDER_STATUS_LIST = "user/order-status-list";
+    static final String GET_LANGUAGE = "user/get-language";
+    static final String GET_LABEL = "user/get-label";
 
-
-    static final String REGISTER = "auth/register";
-    static final String LOGIN = "auth/login";
-    static final String DESIGNATION = "auth/designation";
-    static final String FORGOT_PASSWORD = "auth/forgot";
-    static final String STATES = "auth/states";
-    static final String CITY = "auth/cities";
-    static final String SEND_OTP = "auth/nexmo-send";
-    static final String VERIFY_OTP = "auth/nexmo-verify";
-    static final String APPOITNMENT = "auth/appointment";
-    static final String CHANGE_PASSWORD = "auth/password/reset";
-
-    static final String ACCPET_REQUEST = "clinician-request-accept";
-    static final String REQUEST_LIST = "clinician-patient-request-list";
 }

@@ -1,5 +1,6 @@
 package com.wetmarket.staff.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -21,7 +22,7 @@ import com.wetmarket.staff.databinding.FragmentDeliveryDetailsBinding;
 
 import java.util.ArrayList;
 
-public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeatilsListAdapter.OnItemClickListener, View.OnClickListener  {
+public class DeliveryDetailsFragment extends BaseFragment implements OrderDeatilsListAdapter.OnItemClickListener, View.OnClickListener {
 
     private FragmentDeliveryDetailsBinding binding;
     private AppCompatActivity activity;
@@ -30,8 +31,8 @@ public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeati
     private ArrayList<ItemModel> itemModelArrayList = new ArrayList<>();
     private OrderDeatilsListAdapter orderDeatilsListAdapter;
 
-    public boolean isCollection=false;
-    public boolean isCompleteOrder=false;
+    public boolean isCollection = false;
+    public boolean isCompleteOrder = false;
 
 
     public DeliveryDetailsFragment() {
@@ -39,19 +40,15 @@ public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeati
     }
 
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(getArguments()!= null)
-        {
+        if (getArguments() != null) {
             isCollection = getArguments().getBoolean("isCollection");
             isCompleteOrder = getArguments().getBoolean("isCompleteOrder");
 
         }
-
-
 
 
     }
@@ -67,15 +64,13 @@ public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeati
         return rootView;
     }
 
-    private void setUpToolBar()
-    {
-        if(isCompleteOrder)
-        {
-            ((MainActivity)activity).setUpToolBar(getResources().getString(R.string.order_details),false,true);
+    private void setUpToolBar() {
+        if (isCompleteOrder) {
+            ((MainActivity) activity).setUpToolBar(getResources().getString(R.string.order_details), false, true);
 
 
-        }else{
-            ((MainActivity)activity).setUpToolBar(getResources().getString(R.string.delivery_details),false,true);
+        } else {
+            ((MainActivity) activity).setUpToolBar(getResources().getString(R.string.delivery_details), false, true);
 
         }
     }
@@ -85,15 +80,14 @@ public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeati
 
         binding.btnDeliver.setOnClickListener(this);
 
-        if(isCollection){
+        if (isCollection) {
 
             binding.btnDeliver.setText(activity.getResources().getString(R.string.handover_item));
             binding.tvDate.setVisibility(View.GONE);
             binding.llDeliveryBy.setVisibility(View.VISIBLE);
 
         }
-        if(isCompleteOrder)
-        {
+        if (isCompleteOrder) {
             binding.btnDeliver.setVisibility(View.GONE);
             binding.tvDate.setVisibility(View.VISIBLE);
             binding.llDeliveryBy.setVisibility(View.GONE);
@@ -115,11 +109,13 @@ public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeati
     @Override
     public void onClick(View v) {
 
-        int id=v.getId();
-        switch (id){
+        int id = v.getId();
+        switch (id) {
             case R.id.btnDeliver:
 
-                Utils.addNextFragment(activity,new CompletedOrdersFragment(),DeliveryDetailsFragment.this,false);
+
+                startActivity(new Intent(getActivity(), CompletedOrdersFragment.class));
+
 
                 break;
         }
@@ -140,7 +136,6 @@ public class DeliveryDetailsFragment extends BaseFragment implements  OrderDeati
             setUpToolBar();
         }
     }
-
 
 
 }

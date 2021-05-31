@@ -4,10 +4,11 @@ package com.wetmarket.staff.retrofit;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
-
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.wetmarket.staff.ApplicationClass;
+import com.wetmarket.staff.Model.HandoverItemModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -40,14 +42,70 @@ public class ApiTask {
     @SuppressLint("CheckResult")
     public void sendRequest(String body, HashMap<String, String> param, int reqCode, DisposableCallback apiCallback) {
 
-        if (reqCode == ApiCallInterface.REGISTER) {
-            callapi.register(param).subscribeOn(Schedulers.io())
+        if (reqCode == ApiCallInterface.LOGIN) {
+            callapi.login(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.LOGOUT) {
+            callapi.logout(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.GET_PROFILE) {
+            callapi.getProfile().subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+
+        if (reqCode == ApiCallInterface.ORDER_LIST) {
+            callapi.orderList(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.OUT_DELIVERY_ORDER) {
+            callapi.outOrderList(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.ORDER_ACCEPT) {
+            callapi.acceptOrder(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.ORDER_STATUS_LIST) {
+            callapi.getStatusList(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.GET_LANGUAGE) {
+            callapi.getLanguage().subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.GET_LABEL) {
+            callapi.geLablel(param).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+        if (reqCode == ApiCallInterface.HAND_OVER_ITEM) {
+            callapi.handOverItem(new Gson().fromJson(body, HandoverItemModel.class)).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
         }
 
     }
 
+    @SuppressLint("CheckResult")
+    public void sendRequest(HashMap<String, String> param, int reqCode, DisposableCallback apiCallback, String... photos) {
+        if (param != null) {
+            Log.e("param", param.toString());
+        }
 
+        if (reqCode == ApiCallInterface.UPDATE_PROFILE) {
+            callapi.updateProfile(getParamList(param), createMultipartBody("profile_pic", photos[0])).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribeWith(apiCallback);
+        }
+
+    }
+
+    public HashMap<String, RequestBody> getParamList(HashMap<String, String> params) {
+        HashMap<String, RequestBody> hashMap = new HashMap<>();
+        for (String key : params.keySet()) {
+            hashMap.put(key, toRequestBody(Objects.requireNonNull(params.get(key))));
+        }
+        return hashMap;
+    }
 
     public static RequestBody toRequestBody(String value) {
         return RequestBody.create(MediaType.parse("text/plain"), value);

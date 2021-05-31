@@ -1,14 +1,14 @@
 package com.wetmarket.staff.retrofit;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.google.gson.Gson;
 import com.wetmarket.staff.base.BaseViewInterface;
+import com.wetmarket.staff.dialog.LoadingDialog;
 import com.wetmarket.staff.retrofit.model.BaseModel;
+
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -22,7 +22,7 @@ public class DisposableCallback<T> extends DisposableObserver<T> {
     private int reqCode;
     private BaseViewInterface onApiCallListerner;
     private boolean isProgress;
-    private ProgressDialog progressDialog;
+    private LoadingDialog progressDialog;
 
 
     public DisposableCallback(Context context, int reqCode, BaseViewInterface onApiCallListerner, boolean isProgress) {
@@ -66,7 +66,7 @@ public class DisposableCallback<T> extends DisposableObserver<T> {
             //  AppClass.networkConnectivity.errorMessage(context, onApiCallListerner, reqCode);
         } else if (e instanceof HttpException) {
 
-            if (((HttpException) e).code() == 401) {
+            if (((HttpException) e).code() == 401 || ((HttpException) e).code() == 404) {
                 HttpException httpException = (HttpException) e;
                 try {
                     String errorBody = httpException.response().errorBody().string();
@@ -75,6 +75,13 @@ public class DisposableCallback<T> extends DisposableObserver<T> {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+                /*context.startActivity(new Intent(context, LoginActivity.class));
+                ((AppCompatActivity) context).finishAffinity();*/
+                return;
+            }
+            if (((HttpException) e).code() == 409) {
+                HttpException httpException = (HttpException) e;
+                onApiCallListerner.onError(httpException.getMessage(), reqCode, ((HttpException) e).code());
                 /*context.startActivity(new Intent(context, LoginActivity.class));
                 ((AppCompatActivity) context).finishAffinity();*/
                 return;
@@ -90,13 +97,13 @@ public class DisposableCallback<T> extends DisposableObserver<T> {
     }
 
     private void showProgrssDialog() {
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Loading");
+        progressDialog = new LoadingDialog(context);
         progressDialog.show();
     }
 
     private void dismissDialog() {
-        if (progressDialog != null)
+        if (progressDialog != null) {
             progressDialog.dismiss();
+        }
     }
 }

@@ -3,8 +3,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp">
 
 
         <RelativeLayout
@@ -19,12 +19,11 @@
                 android:background="@drawable/order" />
 
 
-
             <LinearLayout
-                android:layout_toEndOf="@+id/ivshop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ivshop"
                 android:orientation="horizontal">
 
 
@@ -35,7 +34,8 @@
                     android:layout_marginStart="@dimen/_8sdp"
                     android:orientation="vertical">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_order_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -44,6 +44,7 @@
                         android:textSize="@dimen/_11sdp" />
 
                     <TextView
+                        android:id="@+id/tv_delivery_by"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
@@ -52,6 +53,7 @@
                         android:textSize="@dimen/_10sdp" />
 
                     <TextView
+                        android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
@@ -65,6 +67,7 @@
 
 
             <TextView
+                android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

@@ -3,8 +3,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
 
-    <com.wetmarket.staff.Comman.SlidingLinearLayout
+        <variable
+            name="lable"
+            type="com.wetmarket.staff.retrofit.model.LableModel" />
+
+    </data>
+    <com.wetmarket.staff.comman.SlidingLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -41,5 +47,5 @@
 
         </androidx.cardview.widget.CardView>
 
-    </com.wetmarket.staff.Comman.SlidingLinearLayout>
+    </com.wetmarket.staff.comman.SlidingLinearLayout>
 </layout>

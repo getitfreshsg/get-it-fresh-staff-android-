@@ -6,6 +6,8 @@ import android.text.TextUtils;
 
 
 import com.google.gson.Gson;
+import com.wetmarket.staff.retrofit.model.LableModel;
+import com.wetmarket.staff.retrofit.model.OrderStatusModel;
 import com.wetmarket.staff.retrofit.model.UserModel;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -22,6 +24,25 @@ public class MyPref {
 
     public void setUserData(UserModel userData) {
         editor.putString(Keys.UserData.name(), new Gson().toJson(userData));
+        editor.commit();
+    }
+
+    public void setLable(LableModel userData) {
+        editor.putString(Keys.lable.name(), new Gson().toJson(userData));
+        editor.commit();
+    }
+
+    public LableModel getLableData() {
+        String userData = preferences.getString(Keys.lable.name(), "");
+        if (TextUtils.isEmpty(userData))
+            return new LableModel();
+        LableModel user = new Gson().fromJson(userData, LableModel.class);
+        if (user == null) return new LableModel();
+        return user;
+    }
+
+    public void setOrderStatus(OrderStatusModel userData) {
+        editor.putString(Keys.orderstatus.name(), new Gson().toJson(userData));
         editor.commit();
     }
 
@@ -45,6 +66,15 @@ public class MyPref {
         editor.commit();
     }
 
+    public OrderStatusModel getOrderStatus() {
+        String userData = preferences.getString(Keys.orderstatus.name(), "");
+        if (TextUtils.isEmpty(userData))
+            return new OrderStatusModel();
+        OrderStatusModel user = new Gson().fromJson(userData, OrderStatusModel.class);
+        if (user == null) return new OrderStatusModel();
+        return user;
+    }
+
     public String getData(Keys keys) {
         return preferences.getString(keys.name(), "");
     }
@@ -60,6 +90,6 @@ public class MyPref {
     }
 
     public enum Keys {
-        UserData;
+        UserData, token, orderstatus, language, lable;
     }
 }

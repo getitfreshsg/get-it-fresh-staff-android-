@@ -14,6 +14,8 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.wetmarket.staff.R;
+import com.wetmarket.staff.Util.MyPref;
+import com.wetmarket.staff.retrofit.model.LableModel;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -21,11 +23,12 @@ public class BaseActivity extends AppCompatActivity {
 //    MyPref myPref;
     public Context context;
     ProgressDialog progressDialog;
-
+    public LableModel lableModel;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = BaseActivity.this;
+        lableModel = new MyPref(BaseActivity.this).getLableData();
       //  LocaleHelper.setLocale(this, Prefs.getInstance().getString(Prefs.ACTIVELANGUAGE, Prefs.ARABIC));
     }
 

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
+        <variable
+            name="lable"
+            type="com.wetmarket.staff.retrofit.model.LableModel" />
+
+    </data>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -30,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/profile"
+                android:text="@{lable.txtProfile}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
@@ -41,7 +47,7 @@
         </LinearLayout>
 
 
-        <com.wetmarket.staff.Comman.SlidingLinearLayout
+        <com.wetmarket.staff.comman.SlidingLinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -72,10 +78,9 @@
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/ivProfile"
                             android:layout_centerVertical="true"
-                            android:scaleType="fitXY"
                             android:src="@drawable/ic_user_placeholder_new"
                             android:layout_width="@dimen/_65sdp"
                             android:layout_height="@dimen/_65sdp"/>
@@ -133,7 +138,7 @@
                                 android:id="@+id/tvEditProfile"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/personal_detail"
+                                android:text="@{lable.txtPersonalDetails}"
                                 android:textSize="@dimen/_13sdp"
                                 android:layout_centerVertical="true"
                                 android:gravity="center"
@@ -157,7 +162,7 @@
                                 android:id="@+id/tvEdit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/edit"
+                                android:text="@{lable.txtEdit}"
                                 android:textSize="@dimen/_14sdp"
                                 android:layout_centerVertical="true"
                                 android:fontFamily="@font/poppins_regular"
@@ -169,7 +174,7 @@
 
                         <TextView
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:text="@string/name"
+                            android:text="@{lable.txtFullName}"
                             style="@style/Textview_gray_style"/>
 
                         <TextView
@@ -183,7 +188,7 @@
 
                         <TextView
                             android:layout_marginTop="@dimen/_20sdp"
-                            android:text="@string/email"
+                            android:text="@{lable.txtEmailTitle}"
                             android:textColor="@color/gray_font_color"
                             style="@style/Textview_gray_style"/>
 
@@ -198,7 +203,7 @@
 
                         <TextView
                             android:layout_marginTop="@dimen/_20sdp"
-                            android:text="@string/mobile_number"
+                            android:text="@{lable.txtMobileNumber}"
                             android:textColor="@color/gray_font_color"
                             style="@style/Textview_gray_style"/>
 
@@ -218,7 +223,7 @@
 
             </ScrollView>
 
-        </com.wetmarket.staff.Comman.SlidingLinearLayout>
+        </com.wetmarket.staff.comman.SlidingLinearLayout>
 
 
 

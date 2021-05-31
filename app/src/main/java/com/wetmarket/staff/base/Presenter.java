@@ -28,9 +28,18 @@ public class Presenter implements BasePresenterInterface {
 
 
     @Override
-    public void sendRequest(Context context, String body, HashMap<String, String> param, int reqCode) {
+    public void sendRequest(Context context, String body, HashMap<String, String> param, int reqCode, boolean isProgress) {
         try {
-            ((ApplicationClass) ((AppCompatActivity) context).getApplication()).getApiTask().sendRequest(body, param, reqCode, new DisposableCallback(context, reqCode, mvi, true));
+            ((ApplicationClass) ((AppCompatActivity) context).getApplication()).getApiTask().sendRequest(body, param, reqCode, new DisposableCallback(context, reqCode, mvi, isProgress));
+        } catch (CertificateException | UnrecoverableKeyException | NoSuchAlgorithmException | KeyStoreException | KeyManagementException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void sendRequest(Context context, HashMap<String, String> param, int reqCode, boolean isProgress, String... photos) {
+        try {
+            ((ApplicationClass) ((AppCompatActivity) context).getApplication()).getApiTask().sendRequest(param, reqCode, new DisposableCallback(context, reqCode, mvi, isProgress),photos);
         } catch (CertificateException | UnrecoverableKeyException | NoSuchAlgorithmException | KeyStoreException | KeyManagementException | IOException e) {
             e.printStackTrace();
         }

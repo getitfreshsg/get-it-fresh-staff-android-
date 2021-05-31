@@ -23,8 +23,19 @@
     <color name="gray_color">#C6CBBE</color>
     <color name="gray_light_color">#E6E6E6</color>
     <color name="blue_color">#B3CDDF</color>
-    <color name="order_txt_clr">#B1B1B1</color>
-    <color name="add_clr">#6C5952</color>
 
+    <color name="black">#000000</color>
+    <color name="gray">#969696</color>
+    <color name="otp_line_clr">#F0F9E4</color>
+    <color name="dark_green_clr">#7AAF3B</color>
+    <color name="kg_clr">#9B9B9B</color>
+    <color name="add_clr">#6C5952</color>
+    <color name="job_unselect_clr">#CBF0A3</color>
+    <color name="job_txt_unselect_clr">#CFD2CB</color>
+    <color name="order_txt_clr">#B1B1B1</color>
+    <color name="red">#F50E0E</color>
+    <color name="blue">#548FB7</color>
+    <color name="doted_line_clr">#B1B7AD</color>
+    <color name="profile_clr">#777777</color>
 
 </resources>

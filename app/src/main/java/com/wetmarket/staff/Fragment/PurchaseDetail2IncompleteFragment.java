@@ -84,7 +84,7 @@ public class PurchaseDetail2IncompleteFragment extends Fragment  implements View
         }
 
         binding.rvPurchaseList.setLayoutManager(new LinearLayoutManager(activity));
-        adapter = new ItemListAdapter(activity,itemModelArrayList);
+       // adapter = new ItemListAdapter(activity,itemModelArrayList);
         binding.rvPurchaseList.setAdapter(adapter);
 
 

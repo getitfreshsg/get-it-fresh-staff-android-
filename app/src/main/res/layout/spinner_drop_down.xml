@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_degree"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_50sdp"
+    android:background="@null"
+    android:imeOptions="actionNext"
+    android:padding="@dimen/_5sdp"
+    android:text=""
+    android:gravity="center_vertical"
+    android:textColor="@color/black"
+    android:textSize="@dimen/_12sdp" />

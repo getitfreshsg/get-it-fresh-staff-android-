@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="lable"
+            type="com.wetmarket.staff.retrofit.model.LableModel" />
+
+    </data>
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.wetmarket.staff.Activity.ProfileActivity">
 
-        <com.wetmarket.staff.Comman.SlidingLinearLayout
+        <com.wetmarket.staff.comman.SlidingLinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -31,17 +40,15 @@
 
                 <TextView
                     android:id="@+id/tvTitle"
-                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="@string/profile"
+                    android:text="@{lable.txtProfile}"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
-                    />
-
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -61,28 +68,27 @@
 
                     <RelativeLayout
                         android:id="@+id/rlProfileDetail"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_15sdp">
 
 
-                        <ImageView
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/ivProfile"
-                            android:layout_centerVertical="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/ic_user_placeholder_new"
                             android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"/>
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_user_placeholder_new" />
 
                         <LinearLayout
-                            android:layout_toEndOf="@+id/ivProfile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_toEndOf="@+id/ivProfile"
                             android:orientation="vertical">
 
 
@@ -99,31 +105,30 @@
                                 android:id="@+id/tvStaffEmailId"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="andrewscoth@gmail.com"
-                                android:textSize="@dimen/_12sdp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:textColor="@color/gray_font_color"/>
+                                android:text="andrewscoth@gmail.com"
+                                android:textColor="@color/gray_font_color"
+                                android:textSize="@dimen/_12sdp" />
 
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true"
-                            android:src="@drawable/ic_next_gray"
                             android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:scaleType="fitXY"
-                            android:layout_height="@dimen/_25sdp"/>
+                            android:src="@drawable/ic_next_gray" />
 
 
                     </RelativeLayout>
 
                     <View
-
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
-                        android:background="@color/gray_color"
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"/>
+                        android:background="@color/gray_color" />
 
 
                     <RelativeLayout
@@ -131,6 +136,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_15sdp">
 
 
@@ -148,7 +154,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/edit_profile"
+                            android:text="@{lable.txtEditProfile}"
                             android:textColor="@color/dark_black_color"
                             android:textSize="@dimen/_12sdp" />
 
@@ -156,70 +162,110 @@
                     </RelativeLayout>
 
                     <View
-                        android:background="@color/gray_color"
                         android:layout_width="match_parent"
-                        android:layout_height="0.5dp"/>
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray_color" />
 
+                    <RelativeLayout
+                        android:id="@+id/rl_language"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_15sdp"
+                        android:paddingEnd="@dimen/_15sdp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@{lable.txtLanguage}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_select_language"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@color/order_txt_clr" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/sp_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:spinnerMode="dialog" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1">
 
-                    <LinearLayout
-                        android:layout_alignParentBottom="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                    <View
-
-                        android:background="@color/gray_color"
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"/>
-
-                    <RelativeLayout
-                        android:id="@+id/rlLogout"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp">
-
-                        <ImageView
-                            android:id="@+id/ivLogout"
-                            android:layout_alignParentStart="true"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_logout" />
-
-                        <TextView
-                            android:layout_toEndOf="@+id/ivLogout"
-                            android:id="@+id/tvLogout"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/logout"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:textSize="@dimen/_12sdp"
-                            android:layout_centerVertical="true"
-                            android:fontFamily="@font/poppins_regular"
-                            android:textColor="@color/dark_black_color"/>
+                            android:layout_alignParentBottom="true"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:background="@color/gray_color" />
+
+                            <RelativeLayout
+                                android:id="@+id/rlLogout"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp">
+
+                                <ImageView
+                                    android:id="@+id/ivLogout"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_logout" />
+
+                                <TextView
+                                    android:id="@+id/tvLogout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginEnd="@dimen/_10sdp"
+                                    android:layout_toEndOf="@+id/ivLogout"
+                                    android:fontFamily="@font/poppins_regular"
+                                    android:text="@{lable.txtLogout}"
+                                    android:textColor="@color/dark_black_color"
+                                    android:textSize="@dimen/_12sdp" />
 
 
+                            </RelativeLayout>
 
-                    </RelativeLayout>
-
-                    </LinearLayout>
+                        </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
 
 
-
             </ScrollView>
 
-        </com.wetmarket.staff.Comman.SlidingLinearLayout>
-
+        </com.wetmarket.staff.comman.SlidingLinearLayout>
 
 
     </LinearLayout>

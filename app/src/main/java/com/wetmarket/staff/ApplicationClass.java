@@ -3,11 +3,14 @@ package com.wetmarket.staff;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.multidex.MultiDex;
 
 import com.wetmarket.staff.R;
+import com.wetmarket.staff.Util.MyPref;
+import com.wetmarket.staff.Util.StringUtils;
 import com.wetmarket.staff.retrofit.ApiTask;
 import com.wetmarket.staff.retrofit.WebAPI;
 
@@ -47,6 +50,7 @@ public class ApplicationClass extends Application {
     private AppCompatActivity activity;
     private ApiTask apiTask;
     private Retrofit retrofit;
+
     public static ApplicationClass getmInstance() {
         return mInstance;
     }
@@ -62,16 +66,13 @@ public class ApplicationClass extends Application {
         mInstance = this;
 
 
-
-
     }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         MultiDex.install(this);
     }
-
-
 
 
     private static ApplicationClass get(Context context) {
@@ -105,7 +106,6 @@ public class ApplicationClass extends Application {
     }
 
 
-
     public Retrofit getRetrofitInstance() throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException, KeyManagementException, CertificateException, IOException {
         if (retrofit == null) {
 
@@ -135,13 +135,20 @@ public class ApplicationClass extends Application {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     String token = "";
-                   // token = new MyPref(AppClass.this).getData(MyPref.Keys.token);
+                    String language = "";
+                    token = new MyPref(ApplicationClass.this).getData(MyPref.Keys.token);
+                    if (StringUtils.isNotEmpty(new MyPref(ApplicationClass.this).getData(MyPref.Keys.language))) {
+                        if (new MyPref(ApplicationClass.this).getData(MyPref.Keys.language).equalsIgnoreCase("EN")) {
+                            language = "1";
+                        } else {
+                            language = "2";
+                        }
+                    } else {
+                        language = "1";
+                    }
 
-                    Request request = chain.request().newBuilder().addHeader("Authorization", "Bearer " + token)
-                            .addHeader("Access-Control-Allow-Origin", "http://localhost")
-                            .addHeader("Accept", "application/json")
-                            .addHeader("Content-Type", "application/json")
-                            .addHeader("X-Requested-With", "XMLHttpRequest")
+                    Log.e("Token-->", token);
+                    Request request = chain.request().newBuilder().addHeader("Authorization", "Bearer " + token).addHeader("language", language)
                             .build();
                     return chain.proceed(request);
                 }
